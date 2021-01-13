@@ -1,0 +1,31 @@
+body {
+  background: linear-gradient(180deg, black, blue 75%, white);
+  text-align: center;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+.container {
+  height: 100vh;
+  color: white;
+  position: relative;
+}
+.playgame {
+  margin-top: 30vh;
+  background: transparent;
+  p {
+    margin-top: 5px;
+  }
+  button {
+    margin: 15px 30px 15px;
+    padding: 20px 40px;
+    font-size: 30px;
+    border-radius: 25px;
+    background-color: yellowgreen;
+  }
+}

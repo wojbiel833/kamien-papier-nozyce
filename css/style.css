@@ -1,0 +1,36 @@
+body {
+  background: linear-gradient(180deg, black, blue 75%, white);
+  text-align: center;
+}
+
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  color: white;
+  position: relative;
+}
+
+.playgame {
+  margin-top: 30vh;
+  background: transparent;
+}
+
+.playgame p {
+  margin-top: 5px;
+}
+
+.playgame button {
+  margin: 15px 30px 15px;
+  padding: 20px 40px;
+  font-size: 30px;
+  border-radius: 25px;
+  background-color: yellowgreen;
+}
+/*# sourceMappingURL=style.css.map */
