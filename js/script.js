@@ -1,95 +1,96 @@
 'use strict';
+{
+    //PORÓWNANIE WYNIKÓW
+    let playerPoints = 0;
+    let computerPoints = 0;
 
-//PORÓWNANIE WYNIKÓW
-let playerPoints = 0;
-let computerPoints = 0;
-
-function compareResults(){
-  if(playerPoints === 3) printMessage('Wygrałeś!');
-  else if(computerPoints === 3) printMessage('Przegrałeś!');    
-}
-
-// RUCH KOMPA
-function playGame(playerInput) {
-
-    function getMoveName(argMoveId){
-        if(argMoveId == 1){ return 'kamien'; }
-        else if (argMoveId == 2){ return 'papier'; }
-        else if (argMoveId == 3){ return 'nozyce'; }
-
-        printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-        return 'nieznany ruch';
+    function compareResults() {
+        if (playerPoints === 3) printMessage('Wygrałeś!');
+        else if (computerPoints === 3) printMessage('Przegrałeś!');
     }
 
-    function displayResult(argComputerMove, argPlayerMove){
-        if(argComputerMove == 'kamien' && argPlayerMove == 'papier'){ return 'Ty wygrywasz!'; }
-        else if(argComputerMove == 'kamien' && argPlayerMove == 'nozyce'){ return 'Ja wygrywam!'; }
-        else if(argComputerMove == 'papier' && argPlayerMove == 'nozyce'){ return 'Ty wygrywasz!'; }
-        else if(argComputerMove == 'papier' && argPlayerMove == 'kamien'){ return 'Ja wygrywam!';}
-        else if(argComputerMove =='nozyce' && argPlayerMove == 'kamien'){ return 'Ty wygrywasz!'; }
-        else if(argComputerMove == 'nozyce' && argPlayerMove == 'papier'){ return 'Ja wygrywam!'; }
-        else if(argComputerMove == argPlayerMove){ return 'Remis!'; }
-        else if(argPlayerMove == 'nieznany ruch'){ return 'nieznany ruch'; }
-    }
+    // RUCH KOMPA
+    function playGame(playerInput) {
 
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
+        function getMoveName(argMoveId) {
+            if (argMoveId == 1) { return 'kamien'; }
+            else if (argMoveId == 2) { return 'papier'; }
+            else if (argMoveId == 3) { return 'nozyce'; }
 
-    let argComputerMove = getMoveName(randomNumber);
-
-    printMessage('Mój ruch to: ' + argComputerMove);
-
-    // RUCH GRACZA
-
-    // let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-
-    let argPlayerMove = getMoveName(playerInput);
-
-    /*
-    if(playerInput == '1'){ playerMove = 'kamien'; }
-    else if(playerInput == '2'){ playerMove = 'papier'; }
-    else if(playerInput == '3'){ playerMove = 'nozyce'; }
-    */
-    printMessage('Twój ruch to: ' + argPlayerMove);
-
-    // WYNIK GRY
-
-    let result = displayResult(argComputerMove, argPlayerMove);
-
-    function displayResult(argComputerMove, argPlayerMove){
-        if(
-            (argComputerMove == 'kamien' && argPlayerMove == 'papier') ||
-            (argComputerMove == 'papier' && argPlayerMove == 'nozyce') ||
-            (argComputerMove == 'nozyce' && argPlayerMove == 'kamien')) {
-            playerPoints = playerPoints + 1;
-            return 'Ty wygrywasz!';
-            }
-            else if(argComputerMove == argPlayerMove) return 'Remis!';
-            else {
-            computerPoints = computerPoints + 1;
-            return 'Ja wygrywam!';
+            printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+            return 'nieznany ruch';
         }
+
+        function displayResult(argComputerMove, argPlayerMove) {
+            if (argComputerMove == 'kamien' && argPlayerMove == 'papier') { return 'Ty wygrywasz!'; }
+            else if (argComputerMove == 'kamien' && argPlayerMove == 'nozyce') { return 'Ja wygrywam!'; }
+            else if (argComputerMove == 'papier' && argPlayerMove == 'nozyce') { return 'Ty wygrywasz!'; }
+            else if (argComputerMove == 'papier' && argPlayerMove == 'kamien') { return 'Ja wygrywam!'; }
+            else if (argComputerMove == 'nozyce' && argPlayerMove == 'kamien') { return 'Ty wygrywasz!'; }
+            else if (argComputerMove == 'nozyce' && argPlayerMove == 'papier') { return 'Ja wygrywam!'; }
+            else if (argComputerMove == argPlayerMove) { return 'Remis!'; }
+            else if (argPlayerMove == 'nieznany ruch') { return 'nieznany ruch'; }
+        }
+
+        const randomNumber = Math.floor(Math.random() * 3 + 1);
+
+        const argComputerMove = getMoveName(randomNumber);
+
+        printMessage('Mój ruch to: ' + argComputerMove);
+
+        // RUCH GRACZA
+
+        // let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
+
+        const argPlayerMove = getMoveName(playerInput);
+
+        /*
+        if(playerInput == '1'){ playerMove = 'kamien'; }
+        else if(playerInput == '2'){ playerMove = 'papier'; }
+        else if(playerInput == '3'){ playerMove = 'nozyce'; }
+        */
+        printMessage('Twój ruch to: ' + argPlayerMove);
+
+        // WYNIK GRY
+
+        const result = displayResult(argComputerMove, argPlayerMove);
+
+        function displayResult(argComputerMove, argPlayerMove) {
+            if (
+                (argComputerMove == 'kamien' && argPlayerMove == 'papier') ||
+                (argComputerMove == 'papier' && argPlayerMove == 'nozyce') ||
+                (argComputerMove == 'nozyce' && argPlayerMove == 'kamien')) {
+                playerPoints = playerPoints + 1;
+                return 'Ty wygrywasz!';
+            }
+            else if (argComputerMove == argPlayerMove) return 'Remis!';
+            else {
+                computerPoints = computerPoints + 1;
+                return 'Ja wygrywam!';
+            }
+        }
+
+
+        // ustalamy wynik i wypisujemy go w html-u
+        printMessage('Wynik: ' + result);
+
+        // sprawdz, czy gra powinna sie skonczyc
+        compareResults();
     }
 
+    //USUWANIE KOMUNIKATÓW
 
-    // ustalamy wynik i wypisujemy go w html-u
-    printMessage('Wynik: ' + result);
+    clearMessages();
 
-    // sprawdz, czy gra powinna sie skonczyc
-    compareResults();
+    // BUTTONY
+
+    document.getElementById('play-rock').addEventListener('click', function () {
+        playGame(1);
+    });
+    document.getElementById('play-paper').addEventListener('click', function () {
+        playGame(2);
+    });
+    document.getElementById('play-scissors').addEventListener('click', function () {
+        playGame(3);
+    });
 }
-
-//USUWANIE KOMUNIKATÓW
-
-clearMessages();
-
-// BUTTONY
-
-document.getElementById('play-rock').addEventListener('click', function() {
-    playGame(1);
-});
-document.getElementById('play-paper').addEventListener('click', function() {
-    playGame(2);
-});
-document.getElementById('play-scissors').addEventListener('click', function() {
-    playGame(3);
-});

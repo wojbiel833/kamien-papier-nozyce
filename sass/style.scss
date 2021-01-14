@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(180deg, black, blue 75%, white);
+  background: linear-gradient(180deg, black, blue 75%, #aa79c7);
   text-align: center;
 
   *,
@@ -16,10 +16,15 @@ body {
   position: relative;
 }
 .playgame {
-  margin-top: 30vh;
+  margin-top: 20vh;
   background: transparent;
   p {
-    margin-top: 5px;
+    margin: 5px 0;
+
+    &:last-of-type {
+      font-weight: 900;
+      margin: 10px 0;
+    }
   }
   button {
     margin: 15px 30px 15px;
