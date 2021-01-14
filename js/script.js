@@ -1,4 +1,14 @@
 'use strict';
+
+//PORÓWNANIE WYNIKÓW
+let playerPoints = 0;
+let computerPoints = 0;
+
+function compareResults(){
+  if(playerPoints === 3) printMessage('Wygrałeś!');
+  else if(computerPoints === 3) printMessage('Przegrałeś!');    
+}
+
 // RUCH KOMPA
 function playGame(playerInput) {
 
@@ -45,26 +55,27 @@ function playGame(playerInput) {
 
     let result = displayResult(argComputerMove, argPlayerMove);
 
-    /*
     function displayResult(argComputerMove, argPlayerMove){
-        console.log(displayResult)
-        printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
         if(
             (argComputerMove == 'kamien' && argPlayerMove == 'papier') ||
             (argComputerMove == 'papier' && argPlayerMove == 'nozyce') ||
             (argComputerMove == 'nozyce' && argPlayerMove == 'kamien')) {
-
+            playerPoints = playerPoints + 1;
             return 'Ty wygrywasz!';
             }
             else if(argComputerMove == argPlayerMove) return 'Remis!';
             else {
-
+            computerPoints = computerPoints + 1;
             return 'Ja wygrywam!';
         }
     }
-    */
 
+
+    // ustalamy wynik i wypisujemy go w html-u
     printMessage('Wynik: ' + result);
+
+    // sprawdz, czy gra powinna sie skonczyc
+    compareResults();
 }
 
 //USUWANIE KOMUNIKATÓW
