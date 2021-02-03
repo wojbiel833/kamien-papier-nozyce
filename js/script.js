@@ -1,6 +1,10 @@
 "use strict";
 {
-  const points = document.querySelector(".points");
+  const results = document.getElementById("results");
+  const pointsPlayer1 = document.getElementById("player-1");
+  const pointsPlayer2 = document.getElementById("player-2");
+  const computerImg = document.querySelector(".move-2");
+  const playerImg = document.querySelector(".move-1");
 
   //PORÓWNANIE WYNIKÓW
   let playerPoints = 0;
@@ -13,7 +17,19 @@
 
   // RUCH KOMPA
   function playGame(playerInput) {
-    function getMoveName(argMoveId) {
+    function getCompMove(argMoveId) {
+      if (argMoveId == 1) {
+        computerImg.src = `images/reka-kamien-p.jpg`;
+        return "kamien";
+      } else if (argMoveId == 2) {
+        computerImg.src = `images/reka-papier-p.jpg`;
+        return "papier";
+      } else if (argMoveId == 3) {
+        computerImg.src = `images/reka-nozyce-p.jpg`;
+        return "nozyce";
+      }
+    }
+    function getPlayerMove(argMoveId) {
       if (argMoveId == 1) {
         return "kamien";
       } else if (argMoveId == 2) {
@@ -25,35 +41,27 @@
 
     function displayResult(argComputerMove, argPlayerMove) {
       if (argComputerMove == "kamien" && argPlayerMove == "papier") {
-        return "Ty wygrywasz!";
       } else if (argComputerMove == "kamien" && argPlayerMove == "nozyce") {
-        return "Ja wygrywam!";
       } else if (argComputerMove == "papier" && argPlayerMove == "nozyce") {
-        return "Ty wygrywasz!";
       } else if (argComputerMove == "papier" && argPlayerMove == "kamien") {
-        return "Ja wygrywam!";
       } else if (argComputerMove == "nozyce" && argPlayerMove == "kamien") {
-        return "Ty wygrywasz!";
       } else if (argComputerMove == "nozyce" && argPlayerMove == "papier") {
-        return "Ja wygrywam!";
       } else if (argComputerMove == argPlayerMove) {
-        return "Remis!";
       } else if (argPlayerMove == "nieznany ruch") {
-        return "nieznany ruch";
       }
     }
 
     const randomNumber = Math.floor(Math.random() * 3 + 1);
+    const argComputerMove = getCompMove(randomNumber);
 
-    const argComputerMove = getMoveName(randomNumber);
+    console.log("Mój ruch to: " + argComputerMove);
 
-    printMessage("Mój ruch to: " + argComputerMove);
+    const argPlayerMove = getPlayerMove(playerInput);
 
-    // RUCH GRACZA
-    const argPlayerMove = getMoveName(playerInput);
-    printMessage("Zagrałeś: " + argPlayerMove);
+    console.log("Twój ruch to: " + argPlayerMove);
 
     // WYNIK GRY
+
     const result = displayResult(argComputerMove, argPlayerMove);
 
     function displayResult(argComputerMove, argPlayerMove) {
@@ -63,45 +71,47 @@
         (argComputerMove == "nozyce" && argPlayerMove == "kamien")
       ) {
         playerPoints = playerPoints + 1;
+        results.textContent = "Ty wygrywasz!";
         if (playerPoints < 3) {
-          document.getElementById("player1").textContent = playerPoints;
+          document.getElementById("player-1").textContent = playerPoints;
         } else if ((playerPoints = 3)) {
-          document.getElementById("player1").textContent = "Wygrałeś";
+          document.getElementById("player-1").textContent = "Wygrałeś";
         }
-        return "Ty wygrywasz!";
-      } else if (argComputerMove == argPlayerMove) return "Remis!";
-      else {
+      } else if (argComputerMove == argPlayerMove) {
+        results.textContent = "Remis!";
+      } else {
         computerPoints = computerPoints + 1;
-        document.getElementById("player2").textContent = computerPoints;
+        results.textContent = "Ja wygrywam!";
+        document.getElementById("player-2").textContent = computerPoints;
         if (computerPoints < 3) {
-          document.getElementById("player2").textContent = computerPoints;
+          document.getElementById("player-2").textContent = computerPoints;
         } else if ((computerPoints = 3)) {
-          document.getElementById("player2").textContent = "Wygrałeś";
+          document.getElementById("player-2").textContent = "Wygrałeś";
         }
-        return "Ja wygrywam!";
       }
     }
-
-    // ustalamy wynik i wypisujemy go w html-u
-    printMessage(result);
-
     // sprawdz, czy gra powinna sie skonczyc
     compareResults();
   }
 
   //USUWANIE KOMUNIKATÓW
+
   clearMessages();
 
   // BUTTONY
+
   document.getElementById("play-rock").addEventListener("click", function () {
     playGame(1);
+    playerImg.src = `images/reka-kamien-l.jpg`;
   });
   document.getElementById("play-paper").addEventListener("click", function () {
     playGame(2);
+    playerImg.src = `images/reka-papier-l.jpg`;
   });
   document
     .getElementById("play-scissors")
     .addEventListener("click", function () {
       playGame(3);
+      playerImg.src = `images/reka-nozyce-l.jpg`;
     });
 }

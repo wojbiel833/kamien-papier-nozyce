@@ -7,18 +7,7 @@
   </head>
   <body>
     <div class="container">
-      <div id="results"></div>
       <div class="playgame">
-        <div class="points">
-          <div>
-            <h2>Ty</h2>
-            <p id="player1">0</p>
-          </div>
-          <div>
-            <h2>Ja</h2>
-            <p id="player2">0</p>
-          </div>
-        </div>
         <h1>Gra w kamień - papier - nozyce :)</h1>
         <p>Gramy do trzech razy!</p>
         <p>Kliknij guzik, aby wybrac:</p>
@@ -28,11 +17,32 @@
           <button id="play-scissors">Nozyce</button>
         </div>
         <div class="images">
-          <div class="img-left" id="move1">
-            <img src="images/reka-kamien-l.jpg" alt="Move" class="move1" />
+          <div class="img-left">
+            <img
+              src="images/reka-kamien-l.jpg"
+              alt="Move"
+              class="move-1"
+              id="move-1"
+            />
           </div>
-          <div class="img-right" id="move2">
-            <img src="images/reka-kamien-p.jpg" alt="Move" class="move1" />
+          <div class="img-right">
+            <img
+              src="images/reka-kamien-p.jpg"
+              alt="Move"
+              class="move-2"
+              id="move-2"
+            />
+          </div>
+        </div>
+        <div><p id="results">Wynik pojedyńczej rozgrywki</p></div>
+        <div class="points">
+          <div>
+            <h2>Ty</h2>
+            <p id="player-1">0</p>
+          </div>
+          <div>
+            <h2>Ja</h2>
+            <p id="player-2">0</p>
           </div>
         </div>
       </div>
