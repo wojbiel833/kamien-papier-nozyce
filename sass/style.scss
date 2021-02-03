@@ -8,6 +8,7 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: 1px red solid;
   }
 }
 .container {
@@ -16,7 +17,7 @@ body {
   position: relative;
 }
 .playgame {
-  margin-top: 20vh;
+  margin-top: 5vh;
   background: transparent;
   .points {
     height: 200px;

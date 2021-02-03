@@ -21,9 +21,6 @@
       } else if (argMoveId == 3) {
         return "nozyce";
       }
-
-      printMessage("Nie znam ruchu o id " + argMoveId + ".");
-      return "nieznany ruch";
     }
 
     function displayResult(argComputerMove, argPlayerMove) {
@@ -53,17 +50,8 @@
     printMessage("Mój ruch to: " + argComputerMove);
 
     // RUCH GRACZA
-
-    // let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-
     const argPlayerMove = getMoveName(playerInput);
-
-    /*
-        if(playerInput == '1'){ playerMove = 'kamien'; }
-        else if(playerInput == '2'){ playerMove = 'papier'; }
-        else if(playerInput == '3'){ playerMove = 'nozyce'; }
-        */
-    printMessage("Twój ruch to: " + argPlayerMove);
+    printMessage("Zagrałeś: " + argPlayerMove);
 
     // WYNIK GRY
 
@@ -96,7 +84,7 @@
     }
 
     // ustalamy wynik i wypisujemy go w html-u
-    printMessage("Wynik: " + result);
+    printMessage(result);
 
     // sprawdz, czy gra powinna sie skonczyc
     compareResults();
