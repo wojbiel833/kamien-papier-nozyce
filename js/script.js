@@ -54,7 +54,6 @@
     printMessage("Zagrałeś: " + argPlayerMove);
 
     // WYNIK GRY
-
     const result = displayResult(argComputerMove, argPlayerMove);
 
     function displayResult(argComputerMove, argPlayerMove) {
@@ -91,11 +90,9 @@
   }
 
   //USUWANIE KOMUNIKATÓW
-
   clearMessages();
 
   // BUTTONY
-
   document.getElementById("play-rock").addEventListener("click", function () {
     playGame(1);
   });

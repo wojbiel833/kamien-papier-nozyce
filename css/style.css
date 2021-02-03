@@ -45,6 +45,19 @@ body *::after {
   font-size: 50px;
 }
 
+.playgame .images {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.playgame .images .img-left,
+.playgame .images .img-right {
+  -ms-flex-flow: column wrap;
+      flex-flow: column wrap;
+}
+
 .playgame p {
   margin: 5px 0;
 }

@@ -34,6 +34,14 @@ body {
       }
     }
   }
+  .images {
+    display: flex;
+    justify-content: space-around;
+    .img-left,
+    .img-right {
+      flex-flow: column wrap;
+    }
+  }
   p {
     margin: 5px 0;
 
