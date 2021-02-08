@@ -61,9 +61,6 @@
     console.log("Twój ruch to: " + argPlayerMove);
 
     // WYNIK GRY
-
-    const result = displayResult(argComputerMove, argPlayerMove);
-
     function displayResult(argComputerMove, argPlayerMove) {
       if (
         (argComputerMove == "kamien" && argPlayerMove == "papier") ||
@@ -82,24 +79,24 @@
       } else {
         computerPoints = computerPoints + 1;
         results.textContent = "Ja wygrywam!";
-        document.getElementById("player-2").textContent = computerPoints;
+        pointsPlayer2.textContent = computerPoints;
         if (computerPoints < 3) {
-          document.getElementById("player-2").textContent = computerPoints;
+          pointsPlayer2.textContent = computerPoints;
         } else if ((computerPoints = 3)) {
-          document.getElementById("player-2").textContent = "Wygrałeś";
+          pointsPlayer2.textContent = "Wygrałem";
         }
       }
     }
+    displayResult(argComputerMove, argPlayerMove);
+
     // sprawdz, czy gra powinna sie skonczyc
     compareResults();
   }
 
   //USUWANIE KOMUNIKATÓW
-
   clearMessages();
 
   // BUTTONY
-
   document.getElementById("play-rock").addEventListener("click", function () {
     playGame(1);
     playerImg.src = `images/reka-kamien-l.jpg`;

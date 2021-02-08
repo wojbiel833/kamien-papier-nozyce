@@ -10,6 +10,16 @@ body {
     padding: 0;
   }
 }
+.background {
+  position: relative;
+  width: 90vh;
+  img {
+    height: 750px;
+    position: absolute;
+    left: 50%;
+    opacity: 0.5;
+  }
+}
 .container {
   height: 100vh;
   color: rgb(255, 255, 255);
@@ -17,7 +27,7 @@ body {
 }
 .playgame {
   margin-top: 5vh;
-  background: transparent;
+
   .points {
     height: 200px;
     display: flex;
